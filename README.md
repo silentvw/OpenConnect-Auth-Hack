@@ -1,6 +1,8 @@
 # OpenConnect Auth Hack
 Changes Default U/P auth for Openconnect to use Username &amp; Password on one screen.
 
+![Screenshot](https://github.com/thomaswilbur/OpenConnect-Auth-Hack/blob/main/Screen%20Shot%202022-04-26%20at%205.09.56%20AM.png?raw=true)
+
 EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
 1. Install GO & ensure Openconnect TCP & UDP port is set to a custom port (EX: 4433)
