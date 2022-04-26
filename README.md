@@ -13,7 +13,7 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
 4. Around line 78 Point The OC Auth Hack to the OC SERV, **ensure your using the domain that the cert is issued for**
 
-```remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", nil) //remote can be unix cleartext socket of ocserv```
+```remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", nil)```
 
 5. Test by running ```go run main.go``` If you see no output you are good, try and connect to ```MYSERVER.COM:443``` (not 4433 OCSERV)
 
