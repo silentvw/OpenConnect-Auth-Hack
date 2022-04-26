@@ -14,3 +14,8 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 ```remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", nil) //remote can be unix cleartext socket of ocserv```
 
 5. Test by running ```go run main.go``` If you see no output you are good, try and connect to ```MYSERVER.COM:443``` (not 4433 OCSERV)
+
+** Linux Service **
+
+1. ```mkdir /etc/oc_hack```
+2. Copy the service.sh & main.oc to /etc/oc_hack then chmod +x service.sh
