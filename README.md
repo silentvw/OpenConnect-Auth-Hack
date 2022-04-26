@@ -19,3 +19,8 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
 1. ```mkdir /etc/oc_hack```
 2. Copy the service.sh & main.go to /etc/oc_hack then chmod +x service.sh
+3. Install oc_hack.service to your system
+4. systemctl enable oc_hack
+5. systemctl start oc_hack
+
+## PROFIT
