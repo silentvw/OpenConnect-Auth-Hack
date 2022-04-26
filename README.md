@@ -9,15 +9,15 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
 ### Installation
 
-1. Install GO & ensure Openconnect TCP & UDP port is set to a custom port (EX: 4433)
-2. Port forward TCP/UDP 443 4433 & ensure firewall is configured to port forward these
+1. Install GO & ensure Openconnect TCP & UDP port is set to a custom port (EX: TCP: 4433 UDP 443)
+2. Port forward TCP/UDP 443 & ensure firewall is configured to port forward these
 3. Around line 55, change CERT and KEY to match the certificate & key values located in ocserv
 
 ```cert, _ := tls.LoadX509KeyPair("CERT.PEM", "KEY.PEM")```
 
-4. Around line 78 Point The OC Auth Hack to the OC SERV, **ensure your using the domain that the cert is issued for**
+4. Around line 78 Point The OC Auth Hack to the OC SERV
 
-```remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", nil)```
+```remoteConn, err := tls.Dial("tcp", "127.0.0.1:4433", nil)```
 
 5. Test by running ```go run main.go``` If you see no output you are good, try and connect to ```MYSERVER.COM:443``` (not 4433 OCSERV)
 
