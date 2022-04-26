@@ -42,7 +42,7 @@ const authFormNew = `<?xml version="1.0" encoding="UTF-8"?>
 <config-auth client="vpn" type="auth-request">
 <version who="sg">0.1(1)</version>
 <auth id="main">
-<message>Authentication Required | Unauthorized Access Prohibited</message>
+<message>Authentication Required</message>
 <form method="post" action="/auth">
 <input type="text" name="username" label="Username:" />
 <input type="password" name="password" label="Password:" />
