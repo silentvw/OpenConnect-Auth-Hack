@@ -7,6 +7,8 @@ Changes Default U/P auth for Openconnect to use Username &amp; Password on one s
 
 EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
+### Installation
+
 1. Install GO & ensure Openconnect TCP & UDP port is set to a custom port (EX: 4433)
 2. Port forward TCP/UDP 443 4433 & ensure firewall is configured to port forward these
 3. Around line 55, change CERT and KEY to match the certificate & key values located in ocserv
@@ -19,7 +21,7 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
 5. Test by running ```go run main.go``` If you see no output you are good, try and connect to ```MYSERVER.COM:443``` (not 4433 OCSERV)
 
-** Linux Service **
+### Linux Service
 
 1. ```mkdir /etc/oc_hack```
 2. Copy the service.sh & main.go to /etc/oc_hack then chmod +x service.sh
@@ -27,10 +29,9 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 4. systemctl enable oc_hack
 5. systemctl start oc_hack
 
-** If you are using certbot **
+### Certbot
 
 Update your cron/service to this:
 
 ```certbot renew --quiet && systemctl restart ocserv && systemctl restart oc_hack```
 
-## PROFIT
