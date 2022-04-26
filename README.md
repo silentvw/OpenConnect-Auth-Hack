@@ -27,4 +27,10 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 4. systemctl enable oc_hack
 5. systemctl start oc_hack
 
+** If you are using certbot **
+
+Update your cron/service to this:
+
+```certbot renew --quiet && systemctl restart ocserv && systemctl restart oc_hack```
+
 ## PROFIT
