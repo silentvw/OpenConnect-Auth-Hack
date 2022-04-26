@@ -18,4 +18,4 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 ** Linux Service **
 
 1. ```mkdir /etc/oc_hack```
-2. Copy the service.sh & main.oc to /etc/oc_hack then chmod +x service.sh
+2. Copy the service.sh & main.go to /etc/oc_hack then chmod +x service.sh
