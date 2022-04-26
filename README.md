@@ -9,3 +9,6 @@ EX: VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433)
 
 ```cert, _ := tls.LoadX509KeyPair("CERT.PEM", "KEY.PEM")```
 
+4. Around line 78 Point The OC Auth Hack to the OC SERV, **ensure your using the domain that the cert is issued for**
+
+```remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", nil) //remote can be unix cleartext socket of ocserv```
