@@ -1,0 +1,8 @@
+[Unit]
+Description=OC Hack Service
+
+[Service]
+ExecStart=/etc/oc_hack/service.sh
+
+[Install]
+WantedBy=multi-user.target
