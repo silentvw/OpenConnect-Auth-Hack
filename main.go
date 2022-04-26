@@ -77,7 +77,8 @@ func main() {
 			defer clientConn.Close()
 
 			//@todo load config from file
-			remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", nil) //remote can be unix cleartext socket of ocserv
+			config := &tls.Config{InsecureSkipVerify: true}
+			remoteConn, err := tls.Dial("tcp", "MYSERVER.COM:4433", config) //remote can be unix cleartext socket of ocserv
 			if err != nil {
 				log.Println("connect upstream error:", err)
 				return
