@@ -1,4 +1,5 @@
-// ocservFront project main.go
+// OpenConnect Auth Hack
+// https://github.com/thomaswilbur/OpenConnect-Auth-Hack/
 // From: https://gist.github.com/horsley/e286276f83cae9b60d98
 package main
 
@@ -41,6 +42,7 @@ const authFormNew = `<?xml version="1.0" encoding="UTF-8"?>
 <config-auth client="vpn" type="auth-request">
 <version who="sg">0.1(1)</version>
 <auth id="main">
+<message>Authentication Required | Unauthorized Access Prohibited</message>
 <form method="post" action="/auth">
 <input type="text" name="username" label="Username:" />
 <input type="password" name="password" label="Password:" />
