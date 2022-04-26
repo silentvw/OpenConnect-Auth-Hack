@@ -6,6 +6,7 @@ Changes Default U/P auth for Openconnect to use Username &amp; Password on one s
 ![Screenshot](https://github.com/thomaswilbur/OpenConnect-Auth-Hack/blob/main/Screen%20Shot%202022-04-26%20at%205.09.56%20AM.png?raw=true)
 
 VPN CLIENT ----> OC Auth Hack (443) ----> OCSERV (4433 TCP)
+
 VPN CLIENT <----------------------------- OCSERV(443 UDP)
 
 ### Installation
