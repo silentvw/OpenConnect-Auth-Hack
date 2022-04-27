@@ -46,7 +46,6 @@ const authFormNew = `<?xml version="1.0" encoding="UTF-8"?>
 <form method="post" action="/auth">
 <input type="text" name="username" label="Username:" />
 <input type="password" name="password" label="Password:" />
-<input type="password" name="secondary_password" label="Second Password:" />
 </form></auth>
 </config-auth>`
 
@@ -73,7 +72,7 @@ const authFormNew = `<?xml version="1.0" encoding="UTF-8"?>
 //</form></auth>
 //</config-auth>`
 
-var authUserPassRE = regexp.MustCompile("<auth><username>(.*?)</username><password>(.*?)</password><secondary_password>(.*?)</secondary_password></auth>")
+var authUserPassRE = regexp.MustCompile("<auth><username>(.*?)</username><password>(.*?)</password></auth>")
 var vpnCookieRE = regexp.MustCompile("webvpncontext=(.*?);")
 
 func main() {
