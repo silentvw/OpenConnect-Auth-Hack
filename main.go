@@ -49,6 +49,29 @@ const authFormNew = `<?xml version="1.0" encoding="UTF-8"?>
 </form></auth>
 </config-auth>`
 
+const loginFailOld = `<?xml version="1.0" encoding="UTF-8"?>
+<config-auth client="vpn" type="auth-request">
+<version who="sg">0.1(1)</version>
+<auth id="main">
+<message>Login failed.
+Please enter your password.</message>
+<form method="post" action="/auth">
+<input type="password" name="password" label="Password:" />
+</form></auth>
+</config-auth>`
+
+const loginFailNew = `<?xml version="1.0" encoding="UTF-8"?>
+<config-auth client="vpn" type="auth-request">
+<version who="sg">0.1(1)</version>
+<auth id="main">
+<message>Login failed.
+Please enter your password.</message>
+<form method="post" action="/auth">
+<input type="text" name="username" label="Username:" />
+<input type="password" name="password" label="Password:" />
+</form></auth>
+</config-auth>`
+
 var authUserPassRE = regexp.MustCompile("<auth><username>(.*?)</username><password>(.*?)</password></auth>")
 var vpnCookieRE = regexp.MustCompile("webvpncontext=(.*?);")
 
@@ -167,6 +190,11 @@ func hackRemoteResponse(clientConn, remoteConn net.Conn, vpnCookie chan string) 
 			resp.Body.Close()
 			resp.ContentLength = int64(len(authFormNew))
 			resp.Body = ioutil.NopCloser(strings.NewReader(authFormNew))
+		} else if resp.ContentLength == int64(len(loginFailOld)) {
+			log.Println("2. first resp, hack resp auth form")
+			resp.Body.Close()
+			resp.ContentLength = int64(len(loginFailNew))
+			resp.Body = ioutil.NopCloser(strings.NewReader(loginFailNew))
 		} else if ck := resp.Header.Get("Set-Cookie"); ck != "" && vpnCookieRE.MatchString(ck) { //get context cookie
 			log.Println("4. second resp, grep cookie, resp hacking finish")
 
